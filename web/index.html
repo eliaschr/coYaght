@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+	<link type="text/css" rel="stylesheet" media="all" href="styles/main.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="styles/tooltip.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="styles/util.css" />
+	<title>coYaght Control Panel - DeepSeaRobotix A.B.E.E.</title>
+
+	<style type="text/css">
+		#CalButton {
+			background-color: #DDD;
+			border-top: 1px solid #EEE;
+			border-bottom: 1px solid #888;
+			border-left: 1px solid #EEE;
+			border-right: 1px solid #888;
+			height: 18px;
+			vertical-align: middle;
+			margin-top: 0px;
+			margin-left:-3px;
+			padding:1px;
+			-moz-border-radius: 3px;
+			-webkit-border-radius: 3px;
+			border-radius: 3px;
+		}
+		#SetDate {
+			height:18px;
+			width: 11ex;
+			text-align:right;
+		}
+	</style>
+	<script type="text/javascript" src="scripts/loader.js"></script>
+	<script type="text/javascript" src="scripts/jsapi_compiled_default_module.js"></script>
+	<script type="text/javascript" src="scripts/jsapi_compiled_graphics_module.js"></script>
+	<script type="text/javascript" src="scripts/jsapi_compiled_ui_module.js"></script>
+	<script type="text/javascript" src="scripts/jsapi_compiled_corechart_module.js"></script>
+</head>
+
+<body>
+<h1>coYaght Control Panel - DeepSeaRobotix A.B.E.E.</h1>
+<h2>1ο Γυμνάσιο Γέρακα</h2>
+<hr id="HRSep" />
+<img id="DSRLogo" src="images/logo.png" alt="DeepSeaRobotix_Logo" />
+<table id="mainTbl" cols="6">
+	<tbody>
+		<tr>
+			<td class="halfCol bortop borleft borright" colspan="3"></td>
+			<td class="halfCol bortop borleft borright" colspan="3"></td>
+		</tr>
+		<tr>
+			<td class="borleft borright" colspan="3">
+				<center>
+					<div id="ChartPT"></div>
+				</center>
+			</td>
+			<td class="borleft borright" colspan="3" rowspan="3">
+				<center>
+					<img id="imgVideo" src="stream.mjpg?t=0" width="640" height="480"
+						onclick="videoClicked()"
+					/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" class="borleft borbot">
+				Preasure Type:
+			</td>
+			<td class="borbot">
+				<input type="radio" name="PVal" value="0" checked/>KPa
+				<input type="radio" name="PVal" value="1" />m
+			</td>
+			<td class="borright borbot">
+			</td>
+		</tr>
+		<tr>
+			<td class="borleft borright" colspan="3">
+				<center>
+					<div id="ChartLV"></div>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td class="borleft borbot borright" colspan="3">
+				<center>
+					<img id="btn-dst" class="btn" src="images/btn-play.png"
+						onclick="dataStart()"
+					/>
+					<img id="btn-dsp" class="btn" src="images/btn-stop.png"
+						onclick="dataStop()"
+						hidden
+					/>
+				</center>
+			</td>
+			<td class="borleft borbot borright" colspan="3">
+				<center>
+					<img id="btn-vdst" class="btn" src="images/btn-play.png"
+						onclick="videoClicked()"
+						hidden
+					/>
+					<img id="btn-vdsp" class="btn" src="images/btn-pause.png"
+						onclick="videoClicked()"
+					/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td class="borleft bortop borright" colspan="3">
+				<center>
+					<img id="btn-up" class="btn" src="images/btn-up.png" 
+						onmousedown="imgPressed('btn-up')"
+						onmouseup="imgDepressed('btn-up')"
+						onmouseout="imgDepressed('btn-up')"
+					/>
+				</center>
+			</td>
+			<td class="bortop borleft">
+				<center>
+					<img id="btn-tfl" class="btn" src="images/btn-tfl.png"
+						onmousedown="imgPressed('btn-tfl')"
+						onmouseup="imgDepressed('btn-tfl')"
+						onmouseout="imgDepressed('btn-tfl')"
+					/>
+				</center>
+			</td>
+			<td class="bortop">
+				<center>
+					<img id="btn-fr" class="btn" src="images/btn-up.png"
+						onmousedown="imgPressed('btn-fr')"
+						onmouseup="imgDepressed('btn-fr')"
+						onmouseout="imgDepressed('btn-fr')"
+					/>
+				</center>
+			</td>
+			<td class="bortop borright">
+				<center>
+					<img id="btn-tfr" class="btn" src="images/btn-tfr.png"
+						onmousedown="imgPressed('btn-tfr')"
+						onmouseup="imgDepressed('btn-tfr')"
+						onmouseout="imgDepressed('btn-tfr')"
+					/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td class="borleft borright" colspan="3">
+				<center>
+					<img class="sideimg" src="images/coYaght_side.png" />
+				</center>
+			</td>
+			<td class="borleft">
+				<center>
+					<img id="btn-rccw" class="btn" src="images/btn-rccw.png"
+						onmousedown="imgPressed('btn-rccw')"
+						onmouseup="imgDepressed('btn-rccw')"
+						onmouseout="imgDepressed('btn-rccw')"
+					/>
+				</center>
+			</td>
+			<td>
+				<center>
+					<img class="topimg" src="images/coYaght_top.png" />
+				</center>
+			</td>
+			<td class="borright">
+				<center>
+					<img id="btn-rcw" class="btn" src="images/btn-rcw.png"
+						onmousedown="imgPressed('btn-rcw')"
+						onmouseup="imgDepressed('btn-rcw')"
+						onmouseout="imgDepressed('btn-rcw')"
+					/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td class="borleft borright" colspan="3">
+				<center>
+					<img id="btn-dn" class="btn" src="images/btn-dn.png"
+						onmousedown="imgPressed('btn-dn')"
+						onmouseup="imgDepressed('btn-dn')"
+						onmouseout="imgDepressed('btn-dn')"
+					/>
+				</center>
+			</td>
+			<td class="borleft">
+				<center>
+					<img id="btn-tbl" class="btn" src="images/btn-tbl.png"
+						onmousedown="imgPressed('btn-tbl')"
+						onmouseup="imgDepressed('btn-tbl')"
+						onmouseout="imgDepressed('btn-tbl')"
+					/>
+				</center>
+			</td>
+			<td>
+				<center>
+					<img id="btn-bk" class="btn" src="images/btn-dn.png"
+						onmousedown="imgPressed('btn-bk')"
+						onmouseup="imgDepressed('btn-bk')"
+						onmouseout="imgDepressed('btn-bk')"
+					/>
+				</center>
+			</td>
+			<td class="borright">
+				<center>
+					<img id="btn-tbr" class="btn" src="images/btn-tbr.png"
+						onmousedown="imgPressed('btn-tbr')"
+						onmouseup="imgDepressed('btn-tbr')"
+						onmouseout="imgDepressed('btn-tbr')"
+					/>
+				</center>
+			</td>
+		</tr>
+		<tr>
+			<td class="borbot borleft borright" colspan="3"></td>
+			<td class="borbot borleft borright" colspan="3"></td>
+		</tr>
+		<tr class="footHeight">
+		</tr>
+	</tbody>
+</table>
+<div class="footer footHeight">
+	<table class="tblfooter">
+		<tbody>
+			<tr>
+				<td class="footl">
+					<b>Sensors' Status: </b><span id="SenStat">Connecting...</span>
+				</td>
+				<td class="footc"></td>
+				<td class="footr">
+					<b>RTC: </b>
+					<span id="RTCDate"></span> <span id="RTCTime"></span>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+
+<script type="text/javascript" src="scripts/main.js"></script>
+<script type="text/javascript">
+	window.onload=startConnect;
+</script>
