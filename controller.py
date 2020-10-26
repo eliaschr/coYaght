@@ -52,6 +52,8 @@
 # DEALINGS IN THE SOFTWARE.
 #
 
+# Many thanks to https://randomnerdtutorials.com/video-streaming-with-raspberry-pi-camera/
+# as this code is based on their example
 
 # Web streaming server for coYaght
 # Source code from the official PiCamera package
