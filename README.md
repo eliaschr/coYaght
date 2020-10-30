@@ -1,12 +1,14 @@
 # DeepSeaRobotix - coYaght
 ---
 
+![coYaght Image](images/coYaght.jpg)
+
 This is a project for a small _Submarine Drone_. It is consisted of a simple chassis, three motors for navigation, a Raspberry Pi 3B+, an Arduino Uno with a battery operated RTC, a temperature sensor, a light sensor, a pressure sensor, a camera and some more circuitry for driving the motors from the Arduino and for power supply regulation.
 There are also some parts of led strips that form the normal aviation lights (red at its left and green at its right side) and two lights for supporting the camera imaging.
 The whole system can be powered through a network cable (POE). The network cable can be plugged in a laptop that then can operate the drone through a simple web page.
 
 
-![coYaght Image](images/coYaght.jpg)
+![coYaght Image](images/sensors.jpg)
 
 The idea is that the Raspberry Pi can communicate with the Arduino device through a serial port (USB connection) and also stream the image of the camera through network. It can also serve the HTML page, receive data from the Arduino device and store them in a MySQL (Mariadb) database and send commands to the Arduino for controlling the navigating motors. The Arduino can track the measurements of the time through RTC, the light, the temperature, the pressure, so it can calculate the depth, and the power voltage. At the same time it can control the motors according to commands that come from the user, through the Raspberry Pi.
 Of course, for all this to happen, there must be a network connection to some device, like a laptop computer. For the whole networking part, there is a need for a DHCP that sends the appropriate settings to the laptop upon connection. So Raspberry Pi runs a DHCP server on a subnet that is not commonly used in SOHO networks. This is mandatory because a laptop can be connected to a network through its Wireless device while at the same time be connected to the coYaght through its Ethernet device. The two network subnets must be different to avoid conflicts or other faulty communication. The subnet chosen is the 192.168.111.1/24 and the coYaght's IP is selected to be 192.168.111.10
@@ -17,7 +19,7 @@ In this project there are three major parts:
 * The web page, written in HTML/CSS/JavaScript
 * The Arduino sketch for taking measurements and communicate data to and from the serial port
 
-## Web Server (Pyhton 3 code)
+## Web Server (Python 3 code)
 
 For the web server, the team chose to use python 3 and not another ready made web server as apache etc. The reason is that python can handle the Pi Camera easily and there are lots of examples in the internet. The one we used as a starting point is http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming. Python 3 contains modules for handling a serial port, communicating with a MySQL database, running a simple HTTP server, handling the time and all the other necessary jigsaw puzzle pieces we could use to reach our goal.
 There are three files for the web server:
