@@ -3,7 +3,7 @@
 
 This file describes the way the web user interface works
 
-![coYaght UI Image](images/coYaghtUI.gif)
+![coYaght UI Image](../images/coYaghtUI.gif)
 
 When the user visits the IP of coYaght using http://192.168.111.10 the first thing that appears is the logo of the virtual company, **DeepSeaRobotix**. At the bottom of the screen there is a status bar that indicates if the Raspberry system is connected to the Arduino hardware and the time the RTC has. In the beginning the Status is _Connecting..._
 When the connection of the server to the Arduino is established the Status is changed to _Connected_ and the logo of the company just moves to the upper left corner of the page. The main screen appears.
@@ -46,7 +46,7 @@ Both [_tooltip.css_](styles/tooltip.css) and [_util.css_](styles/util.css) are c
 
 In the [_images_](images) directory contains all the needed images that appear on the web user interface.
 
-Finally in the [scripts](scripts) directory there are JavaScript files for the automation of the page. The files that lie in this directory are:
+Finally in the [_scripts_](scripts) directory there are JavaScript files for the automation of the page. The files that lie in this directory are:
 
 * [_main.js_](scripts/main.js): Contains the JavaScript code for the user interface. It handles all the keystrokes and the communication to the server and the rest of the animations.
 

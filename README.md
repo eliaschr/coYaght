@@ -16,8 +16,8 @@ Of course, for all this to happen, there must be a network connection to some de
 In this project there are three major parts:
 
 * The HTTP server, written in Python 3
-* The web page, written in HTML/CSS/JavaScript. More information for the web User Interface are in the [web](web) subdirectory.
-* The Arduino sketch for taking measurements and communicate data to and from the serial port. More information about the code that runs on the Arduino can be found in the [HydroSensors](HydroSensors) subdirectory.
+* The web page, written in HTML/CSS/JavaScript. More information for the web User Interface are in the [_web_](web) subdirectory.
+* The Arduino sketch for taking measurements and communicate data to and from the serial port. More information about the code that runs on the Arduino can be found in the [_HydroSensors_](HydroSensors) subdirectory.
 
 ## Web Server (Python 3 code)
 
