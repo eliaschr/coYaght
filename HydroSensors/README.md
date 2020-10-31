@@ -5,7 +5,7 @@
 
 ## Arduino Subsystem
 
-The Raspberry Pi of the coYaght is connected with an Arduino Uno subsystem. Its purpose is to observe the values of some sensors and control three motors for coYaght navigation in the sea. The code is based on [EUGENIDES FOUNDATION](http://www.eugenfound.edu.gr) code, part of the program [hydrobots](www.hydrobots.gr). The program is modified according to the needs of coYaght.
+The Raspberry Pi of the coYaght is connected with an Arduino Uno subsystem. Its purpose is to observe the values of some sensors and control three motors for coYaght navigation in the sea. The code is based on [EUGENIDES FOUNDATION](http://www.eugenfound.edu.gr) code, part of the program [hydrobots](http://www.hydrobots.gr). The program is modified according to the needs of coYaght.
 
 Arduino runs the code that is consisted of four files:
 
